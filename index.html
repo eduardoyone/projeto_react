@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário de Cadastro e Contato</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <div class="form-card">
+      <header class="form-header">
+        <h1>Fale Conosco</h1>
+        <p>Preencha os campos abaixo para entrar em contato ou realizar seu cadastro.</p>
+      </header>
+
+      <form id="contactForm" novalidate>
+        <!-- Nome -->
+        <div class="form-group">
+          <label for="name">Nome completo <span class="required">*</span></label>
+          <input 
+            type="text" 
+            id="name" 
+            name="name" 
+            placeholder="Ex.: Maria Silva" 
+            required 
+            minlength="3"
+            autocomplete="name"
+          >
+          <span class="error-msg" id="nameError"></span>
+        </div>
+
+        <!-- E-mail -->
+        <div class="form-group">
+          <label for="email">E-mail <span class="required">*</span></label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            placeholder="Ex.: maria@exemplo.com" 
+            required 
+            autocomplete="email"
+          >
+          <span class="error-msg" id="emailError"></span>
+        </div>
+
+        <!-- Telefone -->
+        <div class="form-group">
+          <label for="phone">Telefone / WhatsApp</label>
+          <input 
+            type="tel" 
+            id="phone" 
+            name="phone" 
+            placeholder="(11) 99999-9999" 
+            autocomplete="tel"
+          >
+          <span class="error-msg" id="phoneError"></span>
+        </div>
+
+        <!-- Assunto -->
+        <div class="form-group">
+          <label for="subject">Assunto <span class="required">*</span></label>
+          <select id="subject" name="subject" required>
+            <option value="" disabled selected>Selecione uma opção...</option>
+            <option value="duvidas">Dúvidas gerais</option>
+            <option value="suporte">Suporte técnico</option>
+            <option value="orcamento">Solicitação de orçamento</option>
+            <option value="sugestoes">Sugestões e elogios</option>
+          </select>
+          <span class="error-msg" id="subjectError"></span>
+        </div>
+
+        <!-- Mensagem -->
+        <div class="form-group">
+          <label for="message">Mensagem <span class="required">*</span></label>
+          <textarea 
+            id="message" 
+            name="message" 
+            rows="4" 
+            placeholder="Escreva sua mensagem aqui..." 
+            required
+            minlength="10"
+          ></textarea>
+          <span class="error-msg" id="messageError"></span>
+        </div>
+
+        <!-- Checkbox Termos -->
+        <div class="form-group-checkbox">
+          <input type="checkbox" id="terms" name="terms" required>
+          <label for="terms">
+            Eu aceito os <a href="#" target="_blank">termos de privacidade</a> <span class="required">*</span>
+          </label>
+          <span class="error-msg" id="termsError"></span>
+        </div>
+
+        <!-- Botão Submit -->
+        <button type="submit" id="submitBtn" class="btn-submit">
+          Enviar Mensagem
+        </button>
+      </form>
+
+      <!-- Mensagem de Sucesso -->
+      <div id="successMessage" class="success-message" hidden>
+        <div class="success-icon">✓</div>
+        <h2>Mensagem enviada com sucesso!</h2>
+        <p>Agradecemos pelo contato. Responderemos o mais breve possível.</p>
+        <button type="button" id="resetBtn" class="btn-secondary">Enviar outra mensagem</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
